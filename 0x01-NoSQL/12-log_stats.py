@@ -4,9 +4,8 @@ Script to provide statistics about
 Nginx logs stored in MongoDB.
 """
 from pymongo import MongoClient
-from typing import Any
 
-client: Any = MongoClient('mongodb://127.0.0.1:27017')
+client= MongoClient('mongodb://127.0.0.1:27017')
 nginx_collection = client.logs.nginx
 
 stats = nginx_collection.count_documents({})
