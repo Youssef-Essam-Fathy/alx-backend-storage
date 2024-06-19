@@ -40,3 +40,11 @@ def get_page(url: str) -> str:
     response = requests.get(url)
     response.raise_for_status()
     return response.text
+
+
+if __name__ == "__main__":
+    test_url = "http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.\
+example.com"
+    print(get_page(test_url))
+    print(get_page(test_url))
+    print(redis_store.get(f'count:{test_url}').decode('utf-8'))
